@@ -1,0 +1,68 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /home/wade/homeass/config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    devices:
+      - /dev/ttyAMA0:/dev/ttyAMA0
+  mosquitto:
+    image: eclipse-mosquitto:2
+    user: mosquitto
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: ./mqtt_config/
+        target: /mosquitto/config/
+      - type: bind
+        source: ./mqtt_log/
+        target: /mosquitto/log/
+      - type: volume
+        source: mqttdata
+        target: /mosquitto/data/
+    ports:
+      - target: 1883
+        published: 1883
+        protocol: tcp
+        mode: host
+      - target: 9001
+        published: 9001
+        protocol: tcp
+        mode: host  
+  tpms:
+    build: ./tpms
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - MQTT_HOST=localhost
+    volumes:
+      - type: bind
+        source: ./tpms
+        target: /usr/app/src/
+      - /run/dbus:/run/dbus:ro
+    devices:
+      - /dev/ttyAMA0:/dev/ttyAMA0
+  obd:
+    build: ./obd_mqtt
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - MQTT_HOST=localhost
+      - OBD_PORT=/dev/ttyUSB0
+    volumes:
+      - type: bind
+        source: ./obd_mqtt
+        target: /usr/app/src/
+      - /run/dbus:/run/dbus:ro
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+
+volumes:
+  mqttdata:
+    name: "mqtt-broker-data"
