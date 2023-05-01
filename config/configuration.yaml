@@ -1,0 +1,62 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+mqtt:
+  sensor:
+    - name: "Car Battery"
+      state_topic: "CAR1/voltage"
+      unit_of_measurement: "V"
+      value_template: "{{ value_json.battery_voltage }}"
+    - name: "RPM"
+      state_topic: "/obd/RPM"
+      unit_of_measurement: 'rpm'
+      value_template: "{{ value_json.value }}"
+    - name: "Speed"
+      state_topic: "/obd/SPEED"
+      unit_of_measurement: 'kph'
+      value_template: "{{ value_json.value }}"
+    - name: "left_front_tyre_pressure"
+      state_topic: "TYRE_1"
+      unit_of_measurement: 'psi'
+      value_template: "{{ value_json.psi }}"
+    - name: "right_front_tyre_pressure"
+      state_topic: "TYRE_2"
+      unit_of_measurement: 'psi'
+      value_template: "{{ value_json.psi }}"
+    - name: "left_back_tyre_pressure"
+      state_topic: "TYRE_3"
+      unit_of_measurement: 'psi'
+      value_template: "{{ value_json.psi }}"
+    - name: "right_back_tyre_pressure"
+      state_topic: "TYRE_4"
+      unit_of_measurement: 'psi'
+      value_template: "{{ value_json.psi }}"
+    - name: "left_front_temp"
+      state_topic: "TYRE_1"
+      unit_of_measurement: 'C'
+      value_template: "{{ value_json.temp }}"
+    - name: "right_front_temp"
+      state_topic: "TYRE_2"
+      unit_of_measurement: 'C'
+      value_template: "{{ value_json.temp }}"
+    - name: "left_back_temp"
+      state_topic: "TYRE_3"
+      unit_of_measurement: 'C'
+      value_template: "{{ value_json.temp }}"
+    - name: "right_back_temp"
+      state_topic: "TYRE_4"
+      unit_of_measurement: 'C'
+      value_template: "{{ value_json.temp }}"

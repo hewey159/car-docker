@@ -1,0 +1,10 @@
+2023-04-29 17:29:47.729 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration tpms_ble which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-04-29 17:29:47.734 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2023-04-30 03:15:00.064 WARNING (Thread-7) [pychromecast.socket_client] [Kitchen display(192.168.20.94):8009] Heartbeat timeout, resetting connection
+2023-04-30 03:15:03.221 ERROR (Thread-7) [pychromecast.socket_client] [Kitchen display(192.168.20.94):8009] Failed to connect to service ServiceInfo(type='host', data=('192.168.20.94', 8009)), retrying in 5.0s
+2023-04-30 03:52:02.708 WARNING (Thread-5) [pychromecast.socket_client] [Office speaker(192.168.0.103):8009] Heartbeat timeout, resetting connection
+2023-04-30 03:52:09.942 ERROR (Thread-5) [pychromecast.socket_client] [Office speaker(192.168.0.103):8009] Failed to connect to service ServiceInfo(type='host', data=('192.168.0.103', 8009)), retrying in 5.0s
+2023-04-30 14:26:08.743 WARNING (Thread-5) [pychromecast.socket_client] [Office speaker(192.168.0.103):8009] Heartbeat timeout, resetting connection
+2023-04-30 14:26:38.793 ERROR (Thread-5) [pychromecast.socket_client] [Office speaker(192.168.0.103):8009] Failed to connect to service ServiceInfo(type='host', data=('192.168.0.103', 8009)), retrying in 5.0s
+2023-05-01 04:45:43.123 WARNING (Thread-7) [pychromecast.socket_client] [Kitchen display(192.168.20.94):8009] Heartbeat timeout, resetting connection
+2023-05-01 04:45:50.391 ERROR (Thread-7) [pychromecast.socket_client] [Kitchen display(192.168.20.94):8009] Failed to connect to service ServiceInfo(type='host', data=('192.168.20.94', 8009)), retrying in 5.0s
