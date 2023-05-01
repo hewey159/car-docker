@@ -1,0 +1,6 @@
+[submodule "tpms"]
+	path = tpms
+	url = https://github.com/hewey159/tpms.git
+[submodule "obd_mqtt"]
+	path = obd_mqtt
+	url = https://github.com/hewey159/obd_mqtt.git
